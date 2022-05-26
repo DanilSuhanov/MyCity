@@ -1,0 +1,32 @@
+﻿
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Карта</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <script src="https://api-maps.yandex.ru/2.1/?apikey=7b9119f6-ebed-4fab-9d35-9caa362b253c&lang=ru_RU" type="text/javascript">
+    </script>
+    <script type="text/javascript">
+        ymaps.ready(init);
+        function init() {
+            var myMap = new ymaps.Map("map", {
+                center: [56.3283, 44.0037],
+                zoom: 16
+            });
+            myMap.controls.remove('zoomControl');
+            myMap.controls.remove('trafficControl');
+            myMap.controls.remove('rulerControl');
+            myMap.controls.remove('inputSearch');
+            myMap.controls.remove('typeSelector');
+            myMap.controls.remove('fullscreenControl');
+            myMap.controls.remove('geolocationControl');
+        }
+    </script>
+</head>
+
+<body>
+    <a class="nav-link text-dark" asp-area="" asp-controller="Account" asp-action="Logout">Выйти</a>
+    <div id="map" style="width: 1100px; height: 400px"></div>
+</body>
+
+</html>
