@@ -1,9 +1,15 @@
-﻿<!DOCTYPE html>
+﻿@{
+    if (ViewData["Title"] == null)
+    {
+        ViewData["Title"] = "Unknown";
+    }
+}
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - MyCity</title>
+    <title>@ViewData["Title"]</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
 </head>
@@ -27,7 +33,16 @@
                     </ul>
                     @if (Context.User.Identity.IsAuthenticated)
                     {
-                        <a>@Context.User.Identity.Name</a>
+                        if (!(ViewData["Title"].ToString().Contains("Office")))
+                        {
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Account" asp-action="Office">@Context.User.Identity.Name</a>
+                            <a class="btn btn-danger" asp-area="" asp-controller="Account" asp-action="Logout">Выйти</a>
+                        }
+                    }
+                    else
+                    {
+                        <a class="nav-link text-dark" asp-area="" asp-controller="Account" asp-action="Login">Вход</a>
+                        <a class="nav-link text-dark" asp-area="" asp-controller="Account" asp-action="Register">Регистрация</a>
                     }
                 </div>
             </div>

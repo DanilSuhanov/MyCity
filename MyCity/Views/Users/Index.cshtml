@@ -4,7 +4,7 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
+<h2>Администрирование пользователей</h2>
 
 <p>
     <a asp-action="Create">Create New</a>
@@ -31,6 +31,7 @@
                 @Html.DisplayFor(modelItem => item.Password)
             </td>
             <td>
+                @if (item.Email == "UserAdmin") continue;
                 <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
                 <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
                 <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>

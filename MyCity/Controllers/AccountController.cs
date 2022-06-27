@@ -12,11 +12,18 @@ namespace AuthApp.Controllers
 {
     public class AccountController : Controller
     {
-        private DataBaseContext db;
+        private readonly DataBaseContext db;
         public AccountController(DataBaseContext context)
         {
             db = context;
         }
+
+        [HttpGet]
+        public IActionResult Office() 
+        {
+            return View();
+        }
+
         [HttpGet]
         public IActionResult Login()
         {
