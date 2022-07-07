@@ -4,7 +4,6 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.EntityFrameworkCore;
-using MyCity.Data;
 
 namespace MyCity
 {
@@ -29,8 +28,8 @@ namespace MyCity
                 });
             services.AddControllersWithViews();
 
-            services.AddDbContext<MyCityContext>(options =>
-                    options.UseSqlServer(Configuration.GetConnectionString("MyCityContext")));
+            services.AddDbContext<DataBaseContext>(options =>
+                    options.UseSqlServer(Configuration.GetConnectionString("DataBaseContext")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
