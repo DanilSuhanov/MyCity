@@ -11,10 +11,6 @@ namespace MyCity
     public class DataBaseContext : DbContext
     {
         public DbSet<User> Users { get; set; }
-        public DataBaseContext(DbContextOptions<DataBaseContext> options)
-            : base(options)
-        {
-        }
         protected  override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseNpgsql("Host=localhost;Port=5432;Database=MyCity;Username=postgres;Password=kadjitnichegonekral");

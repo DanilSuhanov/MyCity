@@ -43,7 +43,7 @@ namespace MyCity.Controllers
         [HttpPost]
         public async Task<IActionResult> CreatePost(string Email, string Password)
         {
-            await db.Users.AddAsync(new() { Login = Email, Password = Password });
+            await db.Users.AddAsync(new() { Email = Email, Password = Password });
             await db.SaveChangesAsync();
             return RedirectToAction("Index");
         }
@@ -64,7 +64,7 @@ namespace MyCity.Controllers
         public async Task<IActionResult> EditPost(int id, string Email, string Password) 
         {
             Models.User user = await db.Users.FindAsync(id);
-            user.Login = Email;
+            user.Email = Email;
             user.Password = Password;
             db.Users.Update(user);
             await db.SaveChangesAsync();
